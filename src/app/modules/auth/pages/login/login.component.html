@@ -1,0 +1,21 @@
+<div class="login-container">
+    <div class="login-form">
+        <h1>Inicia sesion</h1>
+        <form [formGroup]="login" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input formControlName="email" type="text" id="username" name="username" placeholder="Usuario" appValidateErrors>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input formControlName="password" type="password" id="password" name="password" placeholder="Contraseña">
+            </div>
+            <button class="get-into" type="submit" [disabled]="login.invalid">Ingresar</button>
+            <button class="get-into color-secondary" (click)="register()" type="submit" >Registrate </button>
+        </form>
+    </div>
+    <div class="login-image">
+        <img src="assets/images/shop.gif" alt="Imagen de inicio de sesión">
+      <button (click)="home()">[]</button>
+    </div>
+</div>
