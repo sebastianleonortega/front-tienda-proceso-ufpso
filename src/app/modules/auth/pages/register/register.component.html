@@ -1,34 +1,40 @@
 <div class="register-container">
-    <div class="register-image">
-        <img src="assets/images/register.png" alt="Imagen de inicio de sesión">
+    <div class="register-image" id="registerImage">
+        <img src="assets/images/register.gif" alt="Imagen de inicio de sesión">
     </div>
-    <div class="register-form">
+    <div class="register-form" id="registerContain">
         <h1>Registrate</h1>
 
         <form [formGroup]="register" (ngSubmit)="onSubmit()">
+          <div class="group-form-double">
             <div class="form-group">
-                <label >Nombre</label>
-                <input formControlName="firstName" type="text" placeholder="Ingrese su nombre" appValidateErrors>
+              <label >Nombre</label>
+              <input formControlName="firstName" type="text" placeholder="Ingrese su nombre" appValidateErrors>
             </div>
             <div class="form-group">
-                <label >Apellido</label>
-                <input formControlName="lastName" type="text" placeholder="Ingrese su apellido">
+              <label >Apellido</label>
+              <input formControlName="lastName" type="text" placeholder="Ingrese su apellido">
             </div>
-          <div class="form-group">
-            <label >Documento</label>
-            <input formControlName="document" type="text" placeholder="Ingrese su documento">
           </div>
-          <div class="form-group">
-            <label>Telefono</label>
-            <input formControlName="phone" type="text" placeholder="Ingrese su telefono">
+          <div class="group-form-double">
+            <div class="form-group">
+              <label >Documento</label>
+              <input formControlName="document" type="text" placeholder="Ingrese su documento">
+            </div>
+            <div class="form-group">
+              <label>Telefono</label>
+              <input formControlName="phone" type="text" placeholder="Ingrese su telefono">
+            </div>
           </div>
+
+
           <div class="form-group">
             <label>Correo</label>
             <input formControlName="email" type="text" placeholder="Ingrese su correo electronico">
           </div>
           <div class="form-group">
             <label >Contraseña</label>
-            <input formControlName="password" type="text" placeholder="Ingrese su contraseña">
+            <input formControlName="password" type="password" placeholder="Ingrese su contraseña">
           </div>
             <button class="get-into" type="submit" >Registrate</button>
             <button class="get-into color-orange" (click)="goBack()"  type="submit" ><em class="icon-arrow-left"></em></button>

@@ -9,6 +9,7 @@
   background-color: #edeff2;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .login-form {
@@ -29,6 +30,7 @@
   h1 {
     margin: 0 0 20px;
     font-size: 24px;
+    font-weight: bold;
   }
 
   form {
@@ -89,12 +91,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   img {
     border-radius: 8px;
     max-width: 100%;
   }
 }
+
 
 
 @media (max-width: 1000px) {

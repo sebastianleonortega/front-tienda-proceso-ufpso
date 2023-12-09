@@ -5,6 +5,8 @@ import {SharedModule} from "../../shared/shared.module";
 import {HomeRoutingModule} from "./home-routing.module";
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { EditArticleComponent } from './pages/edit-article/edit-article.component';
+import { EditCategoryComponent } from './pages/edit-category/edit-category.component';
 
 
 
@@ -12,6 +14,8 @@ import {MatDialogModule} from "@angular/material/dialog";
   declarations: [
     HomeComponent,
     EditUserComponent,
+    EditArticleComponent,
+    EditCategoryComponent,
 
   ],
   imports: [

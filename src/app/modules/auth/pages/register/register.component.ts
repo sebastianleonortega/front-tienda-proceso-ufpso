@@ -22,8 +22,18 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormRegister();
-
+    setTimeout(() => {
+      this.rotateImage();
+    }, 0);
   }
+
+   rotateImage(): void {
+    const registerImage = document.getElementById("registerImage") as HTMLElement | null;
+    if (registerImage) {
+      registerImage.classList.toggle("rotate");
+    }
+  }
+
 
   initFormRegister(): void {
     this.register = new FormGroup({

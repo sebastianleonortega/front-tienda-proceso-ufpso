@@ -9,6 +9,7 @@
   background-color: #edeff2;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  perspective: 1000px;
 }
 
 .register-form {
@@ -28,13 +29,21 @@
   h1 {
     margin: 0 0 20px;
     font-size: 24px;
+    font-weight: bold;
+  }
+
+  .group-form-double{
+    display: flex;
+    width: 100%;
+    gap: 6px;
   }
 
   form {
+    width: 80%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 60%;
+
 
     .form-group {
       width: 100%;
@@ -47,6 +56,7 @@
       }
 
       input {
+        outline: none;
         width: 100%;
         box-sizing: border-box;
         padding: 10px;
@@ -87,11 +97,12 @@
   text-align: center;
   background-color: white;
   border-radius: 8px;
-  margin: 50px 10px 50px 50px;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 50px 10px 50px 50px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
 
   img {
     width: 90%;
@@ -99,6 +110,11 @@
     max-width: 100%;
   }
 }
+
+.rotate {
+  transform: rotateY(180deg);
+}
+
 
 
 @media (max-width: 1000px) {

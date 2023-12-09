@@ -5,6 +5,7 @@ import {HomeService} from "../../service/home.service";
 import {AlertService} from "../../../../core/services/alert.service";
 import {MatDialog} from "@angular/material/dialog";
 import {EditUserComponent} from "../edit-user/edit-user.component";
+import {EditCategoryComponent} from "../edit-category/edit-category.component";
 
 @Component({
   selector: 'app-home',
@@ -92,6 +93,13 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
       this.getAllUser();
     });
+  }
+
+  openModalCategory(){
+    this._dialog.open(EditCategoryComponent,{
+      width: '500px',
+      height: '600px',
+    })
   }
 
 }
