@@ -9,6 +9,7 @@ import {CommonModule, LocationStrategy, PathLocationStrategy} from "@angular/com
 import {SharedModule} from "./shared/shared.module";
 import {AlertService} from "./core/services/alert.service";
 import {ToastrModule} from "ngx-toastr";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {ToastrModule} from "ngx-toastr";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     CoreModule,
     CommonModule,
     SharedModule,

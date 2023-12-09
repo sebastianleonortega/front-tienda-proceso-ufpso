@@ -1,3 +1,100 @@
-<app-header></app-header>
+<div class="wrapper-header">
+  <div class="logo">
+    <img src="assets/images/tiendda.png" alt="logo">
+  </div>
+  <div class="options">
+    <div class="menu">
+      <ul>
+        <li><a (click)="viewUserFunction()">Usuarios</a></li>
+        <li><a (click)="viewArticleFunction()">Articulos</a></li>
+      </ul>
+    </div>
+    <div class="logout" >
+      <button (click)="logout()"><em class="icon-power"></em></button>
+    </div>
+  </div>
+</div>
 
-<p>home works!</p>
+<div class="wrapper-user" *ngIf="viewUser">
+  <div class="table-container">
+    <div class="title-and-add">
+      <span>Usuarios</span>
+      <button (click)="openModalEditUser(null)">Añadir</button>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Documento</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Opciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.document }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <div class="option-icons">
+            <em class="icon-pencil" (click)="openModalEditUser(user.id)"> </em>
+            <em class="icon-trash ho-red" (click)="delete(user.id)"></em>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="wrapper-user" *ngIf="viewArticle">
+  <div class="table-container">
+    <div class="title-and-add">
+      <span>Articulos</span>
+      <div class="btn-article">
+        <button>Añadir categoria</button>
+        <button>Añadir</button>
+      </div>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>fecha de agregacion</th>
+        <th>Categoria</th>
+        <th>Opciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let article of articles">
+        <td>{{ article.id }}</td>
+        <td>{{ article.name }}</td>
+        <td>{{ article.description }}</td>
+        <td>{{ article.stock }}</td>
+        <td>${{ article.price }}</td>
+        <td>{{ article.dateOfAdmission }}</td>
+        <td>{{ article.category.nameCategory }}</td>
+        <td>
+          <div class="option-icons">
+            <em class="icon-pencil" > </em>
+            <em class="icon-trash ho-red"></em>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

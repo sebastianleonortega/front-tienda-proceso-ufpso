@@ -1,0 +1,61 @@
+<div class="add-user" *ngIf="!id">
+  <span>Añadir usuario</span>
+  <form [formGroup]="addUser" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input formControlName="firstName" type="text" placeholder="Ingrese su nombre" appValidateErrors>
+    </div>
+    <div class="form-group">
+      <label>Apellido</label>
+      <input formControlName="lastName" type="text" placeholder="Ingrese su apellido">
+    </div>
+    <div class="form-group">
+      <label>Documento</label>
+      <input formControlName="document" type="text" placeholder="Ingrese su documento">
+    </div>
+    <div class="form-group">
+      <label>Telefono</label>
+      <input formControlName="phone" type="text" placeholder="Ingrese su telefono">
+    </div>
+    <div class="form-group">
+      <label>Correo</label>
+      <input formControlName="email" type="text" placeholder="Ingrese su correo electronico">
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input formControlName="password" type="password" placeholder="Ingrese su contraseña">
+    </div>
+    <button class="get-into" type="submit">Añadir</button>
+  </form>
+</div>
+
+<div class="add-user" *ngIf="id">
+  <span>Actualizar usuario</span>
+  <form [formGroup]="addUser" (ngSubmit)="updateUser()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input formControlName="firstName" type="text" placeholder="Ingrese su nombre" appValidateErrors>
+    </div>
+    <div class="form-group">
+      <label>Apellido</label>
+      <input formControlName="lastName" type="text" placeholder="Ingrese su apellido">
+    </div>
+    <div class="form-group">
+      <label>Documento</label>
+      <input formControlName="document" type="text" placeholder="Ingrese su documento">
+    </div>
+    <div class="form-group">
+      <label>Telefono</label>
+      <input formControlName="phone" type="text" placeholder="Ingrese su telefono">
+    </div>
+    <div class="form-group">
+      <label>Correo</label>
+      <input formControlName="email" type="text" placeholder="Ingrese su correo electronico">
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input formControlName="password" type="password" placeholder="Ingrese su contraseña">
+    </div>
+    <button class="get-into" type="submit">Actualizar</button>
+  </form>
+</div>

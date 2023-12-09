@@ -20,7 +20,8 @@ import {MatIconModule} from "@angular/material/icon";
     HttpClientModule,
     RouterModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+
   ],
   exports: [
     CommonModule,

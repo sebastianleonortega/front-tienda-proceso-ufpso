@@ -5,15 +5,31 @@
     <div class="register-form">
         <h1>Registrate</h1>
 
-        <form >
+        <form [formGroup]="register" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="username">Usuario</label>
-                <input formControlName="email" type="text" id="username" name="username" placeholder="Usuario" appValidateErrors>
+                <label >Nombre</label>
+                <input formControlName="firstName" type="text" placeholder="Ingrese su nombre" appValidateErrors>
             </div>
             <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input formControlName="password" type="password" id="password" name="password" placeholder="Contraseña">
+                <label >Apellido</label>
+                <input formControlName="lastName" type="text" placeholder="Ingrese su apellido">
             </div>
+          <div class="form-group">
+            <label >Documento</label>
+            <input formControlName="document" type="text" placeholder="Ingrese su documento">
+          </div>
+          <div class="form-group">
+            <label>Telefono</label>
+            <input formControlName="phone" type="text" placeholder="Ingrese su telefono">
+          </div>
+          <div class="form-group">
+            <label>Correo</label>
+            <input formControlName="email" type="text" placeholder="Ingrese su correo electronico">
+          </div>
+          <div class="form-group">
+            <label >Contraseña</label>
+            <input formControlName="password" type="text" placeholder="Ingrese su contraseña">
+          </div>
             <button class="get-into" type="submit" >Registrate</button>
             <button class="get-into color-orange" (click)="goBack()"  type="submit" ><em class="icon-arrow-left"></em></button>
         </form>
