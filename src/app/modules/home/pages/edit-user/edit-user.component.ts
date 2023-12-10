@@ -20,8 +20,9 @@ export class EditUserComponent implements OnInit {
     private _auth : AuthService,
     private _alert: AlertService,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public idUser: any,
     private homeService: HomeService,
+    @Inject(MAT_DIALOG_DATA) public idUser: any,
+
 
   ) { }
 
@@ -77,6 +78,9 @@ export class EditUserComponent implements OnInit {
 
         }
       })
+    }else{
+      this._alert.warning("Debes llenar todos los campos del formulario");
+
     }
 
   }
@@ -100,6 +104,9 @@ export class EditUserComponent implements OnInit {
           this.dialog.closeAll();
         }
       })
+    }else{
+      this._alert.warning("Debes llenar todos los campos del formulario");
+
     }
   }
 

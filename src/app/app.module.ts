@@ -10,6 +10,7 @@ import {SharedModule} from "./shared/shared.module";
 import {AlertService} from "./core/services/alert.service";
 import {ToastrModule} from "ngx-toastr";
 import {MatDialogModule} from "@angular/material/dialog";
+import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    NgSelectModule,
     CoreModule,
     CommonModule,
     SharedModule,

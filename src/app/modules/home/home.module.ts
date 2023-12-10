@@ -7,6 +7,7 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { EditCategoryComponent } from './pages/edit-category/edit-category.component';
+import {NgSelectModule} from "@ng-select/ng-select";
 
 
 
@@ -23,6 +24,7 @@ import { EditCategoryComponent } from './pages/edit-category/edit-category.compo
     MatDialogModule,
     SharedModule,
     HomeRoutingModule,
+    NgSelectModule,
 
   ]
 })

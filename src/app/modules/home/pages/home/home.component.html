@@ -7,6 +7,7 @@
       <ul>
         <li><a (click)="viewUserFunction()">Usuarios</a></li>
         <li><a (click)="viewArticleFunction()">Articulos</a></li>
+        <li><a (click)="viewCategoryFunction()">Categorias</a></li>
       </ul>
     </div>
     <div class="logout" >
@@ -44,7 +45,7 @@
         <td>
           <div class="option-icons">
             <em class="icon-pencil" (click)="openModalEditUser(user.id)"> </em>
-            <em class="icon-trash ho-red" (click)="delete(user.id)"></em>
+            <em class="icon-trash ho-red" (click)="deleteUser(user.id)"></em>
 
           </div>
         </td>
@@ -60,8 +61,7 @@
     <div class="title-and-add">
       <span>Articulos</span>
       <div class="btn-article">
-        <button (click)="openModalCategory()">Añadir categoria</button>
-        <button>Añadir</button>
+        <button (click)="openModalEditArticle(null)">Añadir</button>
       </div>
     </div>
     <table>
@@ -88,8 +88,43 @@
         <td>{{ article.category.nameCategory }}</td>
         <td>
           <div class="option-icons">
-            <em class="icon-pencil" > </em>
-            <em class="icon-trash ho-red"></em>
+            <em class="icon-pencil" (click)="openModalEditArticle(article.id)"> </em>
+            <em class="icon-trash ho-red" (click)="deleteArticle(article.id)"></em>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="wrapper-user" *ngIf="viewCategory">
+  <div class="table-container">
+    <div class="title-and-add">
+      <span>Categorias</span>
+      <div class="btn-article">
+        <button (click)="openModalEditCategory(null)">Añadir</button>
+      </div>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre
+        <th>Opciones</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{ category.id }}</td>
+        <td>{{ category.nameCategory }}</td>
+        <td>
+          <div class="option-icons">
+            <em class="icon-pencil" (click)="openModalEditCategory(category.id)"></em>
+            <em class="icon-trash ho-red" (click)="deleteCategory(category.id)"></em>
 
           </div>
         </td>

@@ -64,6 +64,9 @@ export class RegisterComponent implements OnInit {
 
         }
       })
+    }else{
+      this._alert.warning("Debes llenar todos los campos del formulario");
+
     }
 
   }

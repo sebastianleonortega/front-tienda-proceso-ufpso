@@ -1,252 +1,97 @@
-.category-container {
+.add-category {
   width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  background-color: red;
+  flex-direction: column;
+  height: 100%;
 
-
-
-  .close-profile {
-    position: absolute;
-    top: -10px;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 12px;
-    z-index: 2;
-
-    em {
-      font-size: 20px;
-      cursor: pointer;
-      color: #0077ff;
-    }
-
-    em:hover {
-      color: red;
-    }
+  span {
+    font-size: 20px;
+    font-weight: bold;
   }
 
-  .reminder-list {
-    width: 90%;
+  form {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    min-height: 100%;
-    justify-content: space-between;
+    width: 80%;
 
-    h2 {
-      color: #0077ff;
-      font-size: 24px;
-    }
-
-    ul {
+    .form-group {
       width: 100%;
-      height: 80%;
-      overflow: scroll;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      /* Regla para ocultar la barra de desplazamiento en navegadores WebKit */
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 10px 0;
-
-        button {
-          border: none;
-          outline: none;
-        }
-
-        .btn-edit-reminder {
-          background-color: #0077FF;
-          color: #fff;
-          border: none;
-          outline: none;
-          border-radius: 5px;
-          padding: 6px 10px;
-          cursor: pointer;
-          font-size: 14px;
-
-          &:hover {
-            background-color: #0055CC;
-            outline: none;
-          }
-        }
-
-        .btn-delete-reminder {
-          background-color: firebrick;
-          color: #fff;
-          border: none;
-          outline: none;
-          border-radius: 5px;
-          padding: 6px 10px;
-          cursor: pointer;
-          font-size: 14px;
-          margin-left: 6px;
-        }
-      }
-    }
-
-
-    .pad {
-      margin-bottom: 20px;
-      border: none;
-      outline: none;
-    }
-
-    .name-reminder {
-      width: 50%;
-      margin-right: 20px;
-      text-align: center;
-    }
-
-    .time-reminder {
-      width: 30%;
-    }
-
-    .btn-edit-reminder {
-      width: 20%;
-    }
-
-    button {
-      background-color: #0077FF;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 16px;
+      text-align: left;
       margin: 10px 0;
 
-      &:hover {
-        background-color: #0055CC;
-      }
-    }
-  }
-
-  .reminder-agg {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-    margin-top: 100px;
-
-    h2 {
-      color: #0077ff;
-      font-size: 24px;
-    }
-
-    form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .form-reminder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
       label {
-        font-size: 16px;
-        margin: 10px 0;
+        font-size: 14px;
+        display: block;
       }
-
-      select {
-        width: 100%;
-        max-width: 300px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin: 5px 0;
-        background-color: white;
-        color: #333;
-        font-size: 16px;
-        cursor: pointer;
-
-        option {
-          background-color: white;
-          color: #333;
-          font-size: 16px;
-        }
-
-        &focus {
-          outline: none;
-          border-color: #007bff;
-          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        }
-      }
-
 
       input {
         width: 100%;
-        height: 90px;
-        max-width: 300px;
+        box-sizing: border-box;
         padding: 10px;
-        border: 1px solid #ddd;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        outline: none;
         border-radius: 5px;
-        margin: 5px 0;
       }
 
-      .button-container {
+      textarea {
         width: 100%;
-        margin-top: 20px;
-        display: flex;
-        padding: 20px;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-        height: 100%; /* Asegura que ocupe el 100% del espacio vertical */
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 90px;
+        min-height: 90px;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 5px;
 
-        .btn-letf {
-          width: 20%;
-          text-align: center;
-
-
-        }
-
-        .btn-save-reminder {
-          width: 80%;
-          text-align: center;
-
-
-          button {
-            width: 80%;
-          }
-
-
-        }
+      }
+      select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 5px;
+        min-height: 40px; // Ajusta según tus necesidades
       }
 
+      select:hover {
+        border-color: #aaa; // Cambia el color del borde al pasar el ratón
+      }
+
+      select:focus {
+        border-color: #0077FF; // Cambia el color del borde cuando está enfocado
+      }
+    }
+
+    .get-into {
+      width: 100%;
+      background-color: #133136;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+
+      em{
+        font-size: 16px;
+      }
+
+      &:hover{
+        background-color: #110f36;
+      }
+    }
+    .color-orange{
+      background-color: #686d6e;
     }
   }
-}
-
-.btn-estandar {
-  background-color: #0077FF;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
 }
