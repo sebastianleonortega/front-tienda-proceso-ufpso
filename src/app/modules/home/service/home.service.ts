@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {AlertService} from "../../../core/services/alert.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +10,16 @@ export class HomeService {
 
   private apiUrl = 'http://localhost:8082/app/';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private _alert: AlertService) { }
 
 
   //user
   public getAllUser():Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible")
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -25,7 +28,7 @@ export class HomeService {
   public updateUser(id: any, data: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -34,7 +37,7 @@ export class HomeService {
   public getUserById(id: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -43,7 +46,7 @@ export class HomeService {
   public deleteUser(id: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -55,7 +58,7 @@ export class HomeService {
   public createArticle(data: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -65,7 +68,7 @@ export class HomeService {
   public getAllArticle():Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -75,7 +78,7 @@ export class HomeService {
   public updateArticle(id: any, data: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -85,7 +88,7 @@ export class HomeService {
   public getArticleById(id: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -95,7 +98,7 @@ export class HomeService {
   public deleteArticle(id: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -107,7 +110,7 @@ export class HomeService {
   public createCategory(data: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -117,7 +120,7 @@ export class HomeService {
   public getAllCategories():Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -127,7 +130,7 @@ export class HomeService {
   public updateCategory(id: any, data: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -137,7 +140,7 @@ export class HomeService {
   public getCategoryById(id: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);
@@ -147,7 +150,7 @@ export class HomeService {
   public deleteCategory(id: any):Observable<any>{
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token no disponible');
+      this._alert.error("Token no disponible");
       return new Observable();
     }
     const headers = new HttpHeaders().set('Authorization', token);

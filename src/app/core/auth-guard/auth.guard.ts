@@ -7,23 +7,20 @@ import {AuthService} from "../../modules/auth/service/auth.service";
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuardModule  implements CanActivate {
+export class AuthGuard implements CanActivate {
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.authService.isAuthenticated()) {
       return true;
     } else {
-      // No autenticado, redirigir a la página de inicio de sesión
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('');
       return false;
     }
   }
+
 }

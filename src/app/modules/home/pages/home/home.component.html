@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="wrapper-user" *ngIf="viewUser">
+<div class="wrapper-user" *ngIf="viewUser && token">
   <div class="table-container">
     <div class="title-and-add">
       <span>Usuarios</span>
@@ -56,7 +56,7 @@
 </div>
 
 
-<div class="wrapper-user" *ngIf="viewArticle">
+<div class="wrapper-user" *ngIf="viewArticle && token">
   <div class="table-container">
     <div class="title-and-add">
       <span>Articulos</span>
@@ -100,7 +100,7 @@
 </div>
 
 
-<div class="wrapper-user" *ngIf="viewCategory">
+<div class="wrapper-user" *ngIf="viewCategory && token">
   <div class="table-container">
     <div class="title-and-add">
       <span>Categorias</span>

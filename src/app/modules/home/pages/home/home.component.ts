@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../../auth/service/auth.service";
 import {HomeService} from "../../service/home.service";
@@ -23,13 +23,13 @@ export class HomeComponent implements OnInit {
   viewCategory: boolean = false;
   articles: any;
   categories: any;
+
   constructor(
     private _router: Router,
     private authService: AuthService,
     private homeService: HomeService,
     private _alert: AlertService,
     private _dialog: MatDialog,
-
   ) {
     this.token = localStorage.getItem('token');
   }
@@ -51,21 +51,44 @@ export class HomeComponent implements OnInit {
     this._router.navigateByUrl('');
     this._alert.success("Hasta luego, vuelve pronto")
   }
-  viewUserFunction(){
-    this.viewUser = true;
-    this.viewArticle = false;
-    this.viewCategory = false;
+
+  logoutForce() {
+    this._router.navigateByUrl('');
+    this._alert.warning("tiempo de secion a expirado")
   }
-  viewCategoryFunction(){
-    this.viewUser = false;
-    this.viewArticle = false;
-    this.viewCategory = true;
+
+  viewUserFunction() {
+    if (this.authService.isAuthenticated()) {
+      this.viewUser = true;
+      this.viewArticle = false;
+      this.viewCategory = false;
+    } else {
+      this.logoutForce();
+
+    }
+  }
+
+  viewCategoryFunction() {
+    if (this.authService.isAuthenticated()) {
+      this.viewUser = false;
+      this.viewArticle = false;
+      this.viewCategory = true;
+    } else {
+      this.logoutForce();
+
+    }
 
   }
-  viewArticleFunction(){
-    this.viewUser = false;
-    this.viewArticle = true;
-    this.viewCategory = false;
+
+  viewArticleFunction() {
+    if (this.authService.isAuthenticated()) {
+      this.viewUser = false;
+      this.viewArticle = true;
+      this.viewCategory = false;
+    } else {
+      this.logoutForce();
+
+    }
   }
 
   //users
@@ -76,9 +99,10 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-  deleteUser(id: any){
+
+  deleteUser(id: any) {
     this.homeService.deleteUser(id).subscribe({
-      next : rep =>{
+      next: rep => {
         this._alert.success("Usuario eliminado")
         this.getAllUser();
       }
@@ -93,9 +117,10 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-  deleteArticle(id: any){
+
+  deleteArticle(id: any) {
     this.homeService.deleteArticle(id).subscribe({
-      next : rep =>{
+      next: rep => {
         this._alert.success("Articulo eliminado")
         this.getAllArticle();
       }
@@ -110,9 +135,10 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-  deleteCategory(id: any){
+
+  deleteCategory(id: any) {
     this.homeService.deleteCategory(id).subscribe({
-      next : rep =>{
+      next: rep => {
         this._alert.success("Categoria eliminado")
         this.getAllCategories();
       }
@@ -120,10 +146,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-
-
   openModalEditUser(id: any | null) {
-      const idUser = id;
+    const idUser = id;
     const dialogRef = this._dialog.open(EditUserComponent, {
       width: '500px',
       height: '600px',
@@ -147,7 +171,7 @@ export class HomeComponent implements OnInit {
   }
 
   openModalEditCategory(id: any | null) {
-    const idCategory= id;
+    const idCategory = id;
     const dialogRef = this._dialog.open(EditCategoryComponent, {
       width: '500px',
       height: '600px',
@@ -157,8 +181,6 @@ export class HomeComponent implements OnInit {
       this.getAllCategories();
     });
   }
-
-
 
 
 }
