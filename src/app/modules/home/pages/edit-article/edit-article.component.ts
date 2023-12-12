@@ -51,18 +51,18 @@ export class EditArticleComponent implements OnInit {
     this.addArticle.get('stock')?.setValue(data.stock);
     this.addArticle.get('price')?.setValue(data.price);
     this.addArticle.get('dateOfAdmission')?.setValue(data.dateOfAdmission);
-    this.addArticle.get('category')?.setValue(category.categoryName);
+    this.addArticle.get('category')?.setValue(category.id);
   }
 
 
   initFormAddArticle(): void {
     this.addArticle = new FormGroup({
-      name: new FormControl('', [Validators.required, ]),
-      description: new FormControl('', [Validators.required, ]),
+      name: new FormControl('', [Validators.required, Validators.maxLength(255) ]),
+      description: new FormControl('', [Validators.required,Validators.maxLength(255) ]),
       stock: new FormControl('', [Validators.required]),
-      price: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required,Validators.maxLength(15), Validators.minLength(3)]),
       dateOfAdmission:new FormControl( [new Date().toISOString().split('T')[0]]),
-      category: new FormControl('', ),
+      category: new FormControl('',[Validators.required]),
     });
   }
 
@@ -102,7 +102,6 @@ export class EditArticleComponent implements OnInit {
         category: {id: this.addArticle.get('category')?.value},
         user: {id: 1},
       }
-      console.log(data)
       this.homeService.updateArticle(this.idArticle, data).subscribe({
         next: (data) => {
           this.articleUpdate = data

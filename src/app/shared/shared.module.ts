@@ -6,12 +6,14 @@ import {RouterModule} from "@angular/router";
 import {HeaderComponent} from "./layouts/header/header.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
+import {MessageErrorsDirective} from "./directives/field-errors/directive/message-errors.directive";
 
 
 
 @NgModule({
   declarations: [
-      HeaderComponent
+      HeaderComponent,
+    MessageErrorsDirective
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import {MatIconModule} from "@angular/material/icon";
     RouterModule,
     HeaderComponent,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MessageErrorsDirective
   ]
 })
 export class SharedModule { }

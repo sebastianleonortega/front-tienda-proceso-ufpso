@@ -48,7 +48,7 @@ export class EditCategoryComponent implements OnInit {
 
   initFormCategory(): void {
     this.addCategory = new FormGroup({
-      nameCategory: new FormControl('', [Validators.required,])
+      nameCategory: new FormControl('', [Validators.required, Validators.maxLength(255)])
     });
   }
 

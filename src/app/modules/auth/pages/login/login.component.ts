@@ -43,12 +43,10 @@ export class LoginComponent implements OnInit {
         email: this.login.get('email')?.value,
         password: this.login.get('password')?.value,
       };
-      console.log(data)
 
       this._auth.login(data).subscribe({
         next: (data) => {
           this.token = data.token;
-          console.log(this.token)
           localStorage.setItem('token', this.token);
           this._alert.success("Bienvenido");
           this._router.navigateByUrl('/home');

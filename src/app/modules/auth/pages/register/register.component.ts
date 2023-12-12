@@ -39,10 +39,10 @@ export class RegisterComponent implements OnInit {
     this.register = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(100)]),
       password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
-      firstName: new FormControl('', [Validators.required]),
-      document: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
+      firstName: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+      document: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(5)]),
+      lastName: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+      phone: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(10)]),
     });
   }
 
@@ -62,6 +62,8 @@ export class RegisterComponent implements OnInit {
           this._alert.success("Usuario registrado exitosamente");
           this._router.navigateByUrl('');
 
+        },error: (error) => {
+          this._alert.error(error.error)
         }
       })
     }else{

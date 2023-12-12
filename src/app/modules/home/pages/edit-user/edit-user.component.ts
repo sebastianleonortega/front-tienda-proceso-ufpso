@@ -53,10 +53,10 @@ export class EditUserComponent implements OnInit {
     this.addUser = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(100)]),
       password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
-      firstName: new FormControl('', [Validators.required]),
-      document: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
+      firstName: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+      document: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(5)]),
+      lastName: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+      phone: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(10)]),
     });
   }
 
@@ -96,7 +96,6 @@ export class EditUserComponent implements OnInit {
         lastName: this.addUser.get('lastName')?.value,
         phone: this.addUser.get('phone')?.value,
       }
-      console.log(data)
       this.homeService.updateUser(this.idUser, data).subscribe({
         next: (data) => {
           this.userUpdate = data
